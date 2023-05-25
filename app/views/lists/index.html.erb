@@ -1,0 +1,13 @@
+<h1>WatchList</h1>
+
+
+<div>
+<% @lists.each do |list| %>
+  <p>
+    <strong>Name:</strong>
+    <%= list.name %>
+  </p>
+    <%= link_to "Show this list", list %>
+<% end %>
+
+</div>

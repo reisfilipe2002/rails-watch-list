@@ -1,0 +1,21 @@
+<div class="banner" >
+  <div class="container">
+    <h1 class='text-center'><%= @list.name %></h1>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="cards mt-5">
+
+    <% @bookmark.each do |bookmark| %>
+      <div url(<%= bookmark.movie.poster_url %>)>
+        <%= bookmark.movie.title %>
+        <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} do %>
+          <i class="fa-solid fa-trash remove"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+   <%= link_to "Add a movie", new_list_bookmark_path(@list), class:"btn btn-primary" %>
